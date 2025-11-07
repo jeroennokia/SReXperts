@@ -229,7 +229,7 @@ The key pieces here are the pools used for the VNI, EVI and tunnel index allocat
 
 The RoutedInterface enables the configuration and management of Layer 3 interfaces for routing traffic between different networks. This resource allows for specifying an underlying Interface and Router, configuring VLAN IDs, and setting the IP MTU. Routed Interfaces are similar to Bridge Interfaces, but they define a routed interface, instead of a bridged/switch one.
 
-You will find the -{{icons.circle(letter="RI", text="Routed Interface")}}- resource under the -{{icons.vnet()}}- category. Your goal is two create two routed interface, one for each client. These interfaces should reference the physical network interfaces that are part of your topology as well reference the Router you created in the previous step.
+You will find the -{{icons.circle(letter="RI", text="Routed Interface")}}- resource under the -{{icons.vnet()}}- category. Your goal is to create two routed interface, one for each client. These interfaces should reference the physical network interfaces that are part of your topology and the Router you created in the previous step.
 
 The physical interfaces were already modeled in EDA with the -{{icons.circle(letter="I", text="Interface")}}- resource during the topology onboarding process, their names are:
 
