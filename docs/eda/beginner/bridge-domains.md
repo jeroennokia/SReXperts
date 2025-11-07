@@ -213,7 +213,7 @@ Find the **Bridge Interfaces** section of the **Virtual Networks** category of y
 Recall, that the Bridge Interface resource in EDA can reference an existing Interface object to a single Bridge Interface mapped to a network interface. You are tasked with creating a Bridge Interface that would target the already existing interface `leaf11-client11` and associate it with the Bridge Domain we created earlier.  
 In the Bridge Interface form you should at a minimum provide the following:
 
-1. Bridge Interface a name
+1. A Bridge Interface name
 2. A reference to the Bridge Domain that this Bridge Interface should be connected to
 3. A VLAN ID that this Bridge Interface should be using (hint: you found out the VLAN ID in one of the previous steps!).
 4. A reference to the Interface resource that this Bridge Interface should be using.
@@ -367,7 +367,7 @@ After assigning your new label to both interfaces, the list should look as follo
 
 ### VLAN resource
 
-Now that both interfaces have been assigned a common label, any EDA application can select them based on the tag. If before we had to create two instances of Bridge Interface for each interface/vlab/bridge-domain triplet, now we can optimize the workflow by using a different EDA resource - the VLAN resource.
+Now that both interfaces have been assigned a common label, any EDA application can select them based on the tag. If before we had to create two instances of Bridge Interface for each interface/vlan/bridge-domain triplet, now we can optimize the workflow by using a different EDA resource - the VLAN resource.
 
 The VLAN resource, in contrast to the Bridge Interface, selects the interfaces based on the label selector, and does not allow you to individually pick an interface. It provides a way to connect the customer-facing interfaces to the bridge domain in a **bulk mode**. And this is exactly what you are tasked with, even though your fabric only has two clients, you can imagine running real fabric with hundreds or thousands VMs that ought to be interconnected via the overlay network service.
 
