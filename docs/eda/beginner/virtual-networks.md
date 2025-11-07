@@ -30,9 +30,9 @@ In this exercise your focus will be on building a composite overlay service that
 
 ## Technology explanation
 
-We have covered the scenario where hosts can talk to each other in a layer-2 domain (via a [Bridge Domain](bridge-domains.md)), and the scenario where hosts in different subnets can be interconnected (via a [Router](routers.md)). We did not cover perhaps the most frequent scenario: a combination of the layer-2 inter-subnet bridging and layer-3 routing to interconnected different subnets.
+We have covered the scenario where hosts can talk to each other in a layer-2 domain (via a [Bridge Domain](bridge-domains.md)), and the scenario where hosts in different subnets can be interconnected (via a [Router](routers.md)). We did not cover perhaps the most common scenario: a combination of the layer-2 inter-subnet bridging and layer-3 routing to interconnect different subnets.
 
-Because of the popularity of this design, EDA provides a dedicated abstraction for it: the -{{icons.circle(letter="VN", text="Virtual Networks")}}- resource that you can find in -{{icons.vnet()}}- category.
+Because of the popularity of this design, EDA provides a dedicated abstraction for it: the -{{icons.circle(letter="VN", text="Virtual Networks")}}- resource that you can find in the -{{icons.vnet()}}- category.
 
 A Virtual Network combines multiple bridge domains, routers, routed interfaces and protocols in a single resource. A typical Virtual Network might for example contain:
 
@@ -44,7 +44,7 @@ A Virtual Network combines multiple bridge domains, routers, routed interfaces a
 
 In this exercise, we'll create a mix of bridge domains and routed interfaces that can all communicate with each other, regardless of whether their IP addresses are in the same subnet or not. The whole network connectivity design will be driven off of a single abstracted intent - **Virtual Network** - that will emit multiple sub-resources that we previously covered in parts [1](bridge-domains.md) and [2](routers.md).
 
-The diagram below depicts how a single high-level Virtual Network resource emits multiple sub-resources and through this orchestrates a creation of a composite service topology.
+The diagram below depicts how a single high-level Virtual Network resource emits multiple sub-resources, which together create a composite service topology.
 
 ```mermaid
 graph TB
@@ -262,7 +262,7 @@ spec:
 
 ///
 
-We recommend you do a Dry Run first, and see the node configuration diff to see how much stuff gets created on the node when you commit it. Overlay services is not a small feat, and configuring this manually would be a lot of work. With EDA, you get a lot for free, with reliable and fast transaction model to ensure consistency and reliability.
+We recommend you do a Dry Run first, and see the node configuration diff to see how much stuff gets created on the node when you commit it. Overlay services is not a small feat, and configuring this manually would be a lot of work. With EDA, you get a lot for free, with a reliable and fast transaction model to ensure consistency and reliability.
 
 When the Virtual Network resource is successfully created, test the connectivity between the clients. Try to understand what the ping command is doing, and which components you created in EDA are responsible for routing/switching the traffic to the correct destination. The activity has been successfully completed if all these ping commands succeed.
 
